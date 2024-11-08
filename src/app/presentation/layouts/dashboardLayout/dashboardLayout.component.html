@@ -14,11 +14,13 @@
     <!-- Nav Links -->
     @for (route of routes; track route.path){
       <app-sidebar-menu-item
-      [description]="route.data!['description']"
-      [icon]="route.data!['icon']"
-      [title]="route.data!['title']"
-      [path]="route.path! />
-    }
+          [description]="route.data!['description']"
+          [icon]="route.data!['icon']"
+          [title]="route.data!['title']"
+          [path]="route.path!">
+      </app-sidebar-menu-item>
+  }
+
 
     <!-- End Nav Links -->
   </nav>
