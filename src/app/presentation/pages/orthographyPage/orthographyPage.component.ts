@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ChatMessageComponent } from '@components/chat-bubbles/chatMessage/chatMessage.component';
 import { MyMessageComponent, TextMessageBoxComponent, TextMessageBoxEvent, TextMessageBoxFileComponent, TextMessageBoxSelectComponent, TextMessageEvent, TypingLoaderComponent } from '@components/index';
+import { Message } from '@interfaces/index';
 
 @Component({
   selector: 'app-orthography-page',
@@ -19,6 +20,9 @@ import { MyMessageComponent, TextMessageBoxComponent, TextMessageBoxEvent, TextM
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class OrthographyPageComponent {
+
+  public messages = signal<Message[]>([ {text:'Hola Mundo', isGpt: true} ]);
+  public isLoading = signal(false);
 
   handleMessage(prompt: string){
     console.log(prompt);
